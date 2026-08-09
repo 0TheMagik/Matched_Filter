@@ -1,0 +1,28 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-935,-293",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
+#  -string -flagsOSRD
+preplace port port-id_clk_100MHz -pg 1 -lvl 0 -x -900 -y -210 -defaultsOSRD
+preplace portBus matched_out -pg 1 -lvl 3 -x -240 -y -20 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x -360 -y -180 -defaultsOSRD
+preplace inst mem_interface_0 -pg 1 -lvl 1 -x -580 -y -210 -defaultsOSRD
+preplace inst mult_gen_0 -pg 1 -lvl 2 -x -360 -y -20 -defaultsOSRD
+preplace inst mem_interface_1 -pg 1 -lvl 1 -x -580 -y 130 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 2 -x -360 -y 140 -defaultsOSRD
+preplace netloc mem_interface_0_addr 1 1 1 -480 -210n
+preplace netloc blk_mem_gen_0_douta 1 1 1 -460 -150n
+preplace netloc mem_interface_1_addr 1 1 1 N 130
+preplace netloc blk_mem_gen_1_douta 1 1 1 -460 0n
+preplace netloc Net 1 0 2 -680 0 -470
+preplace netloc mult_gen_0_P 1 2 1 N -20
+levelinfo -pg 1 -900 -580 -360 -240
+pagesize -pg 1 -db -bbox -sgen -1060 -430 600 390
+"
+}
+{
+   "da_board_cnt":"4",
+   "da_clkrst_cnt":"1"
+}

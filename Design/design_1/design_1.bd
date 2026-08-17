@@ -233,8 +233,8 @@
           "blk_mem_gen_1/clka",
           "mult_gen_0/CLK",
           "blk_mem_gen_0/clka",
-          "mem_interface_1/clk",
-          "mem_interface_0/clk"
+          "mem_interface_0/clk",
+          "mem_interface_1/clk"
         ]
       },
       "blk_mem_gen_0_douta": {

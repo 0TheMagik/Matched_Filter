@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Aug  9 22:31:45 2026" VIVADOVERSION="2025.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Aug 15 20:37:08 2026" VIVADOVERSION="2025.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="microphase.cn:z7_lite_z7010:part0:1.0" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-2"/>
 
@@ -9,8 +9,8 @@
         <CONNECTION INSTANCE="blk_mem_gen_1" PORT="clka"/>
         <CONNECTION INSTANCE="mult_gen_0" PORT="CLK"/>
         <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
-        <CONNECTION INSTANCE="mem_interface_1" PORT="clk"/>
         <CONNECTION INSTANCE="mem_interface_0" PORT="clk"/>
+        <CONNECTION INSTANCE="mem_interface_1" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="63" NAME="matched_out" RIGHT="0" SIGIS="undef" SIGNAME="mult_gen_0_P">

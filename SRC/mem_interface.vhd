@@ -25,7 +25,7 @@ begin
             if read_addr < 2000 then
                 read_addr <= read_addr + 1;
             else
-                read_addr <= (others => '0'); -- Loop back
+--                read_addr <= (others => '0'); -- Loop back
             end if;
         end if;
     end process;

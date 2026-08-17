@@ -67,7 +67,7 @@
 // INST_TAG     ------ Begin cut for WRAPPER INSTANTIATION Template ------
 design_1_sv your_instance_name (
   .clk_100MHz(clk_100MHz), // input wire clk_100MHz
-  .matched_out(matched_out) // output wire [35:0] matched_out
+  .matched_out(matched_out) // output wire [63:0] matched_out
 );
 // INST_TAG_END ------  End cut for WRAPPER INSTANTIATION Template  ------
 

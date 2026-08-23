@@ -12,16 +12,16 @@ vmap xpm activehdl/xpm
 vmap blk_mem_gen_v8_4_12 activehdl/blk_mem_gen_v8_4_12
 vmap xil_defaultlib activehdl/xil_defaultlib
 
-vlog -work xpm  -sv2k12 "+incdir+C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef" -l xpm -l blk_mem_gen_v8_4_12 -l xil_defaultlib \
+vlog -work xpm  -sv2k12 "+incdir+../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef" -l xpm -l blk_mem_gen_v8_4_12 -l xil_defaultlib \
 "C:/AMDDesignTools/2025.2/Vivado/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93  \
 "C:/AMDDesignTools/2025.2/Vivado/data/ip/xpm/xpm_VCOMP.vhd" \
 
-vlog -work blk_mem_gen_v8_4_12  -v2k5 "+incdir+C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef" -l xpm -l blk_mem_gen_v8_4_12 -l xil_defaultlib \
+vlog -work blk_mem_gen_v8_4_12  -v2k5 "+incdir+../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef" -l xpm -l blk_mem_gen_v8_4_12 -l xil_defaultlib \
 "../../../../../Design/design_2/ipshared/42f3/simulation/blk_mem_gen_v8_4.v" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef" -l xpm -l blk_mem_gen_v8_4_12 -l xil_defaultlib \
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef" -l xpm -l blk_mem_gen_v8_4_12 -l xil_defaultlib \
 "../../../bd/design_2/ip/design_2_blk_mem_gen_0_0/sim/design_2_blk_mem_gen_0_0.v" \
 "../../../bd/design_2/ip/design_2_blk_mem_gen_1_0/sim/design_2_blk_mem_gen_1_0.v" \
 "../../../bd/design_2/ip/design_2_mem_interface_0_0/sim/design_2_mem_interface_0_0.v" \

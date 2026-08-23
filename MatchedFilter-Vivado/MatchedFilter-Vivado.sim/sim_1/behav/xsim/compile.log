@@ -14,3 +14,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Documents/Vivado_Proj
 INFO: [VRFC 10-311] analyzing module design_2_wrapper
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/USER/Documents/Vivado_Project/Matched_Filter/MatchedFilter-Vivado/MatchedFilter-Vivado.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Documents/Vivado_Project/Matched_Filter/SRC/mem_interface.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mem_interface'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Documents/Vivado_Project/Matched_Filter/SRC/matchedfilter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'matchedfilter'

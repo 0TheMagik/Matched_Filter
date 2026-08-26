@@ -1,29 +1,59 @@
-fs = 10000;
-t = 0:1/fs:0.2;
+%% Parameters
+fs = 1000;                      % Sampling frequency (1 kHz)
+dt = 1/fs;
 
-signal_1 = sin(2 * pi * 100 * t);
+% 1. Reference Signal (0.5 s pulse)
+t_ref = 0:dt:0.5;
+fc_ref = 10;                    % 10 Hz tone
+signal_ref = sin(2 * pi * fc_ref * t_ref);
 
-signal_2 = sin(2 * pi * 100 * t);
+% 2. Clean Return Signal with Delay
+t_ret = 0:dt:2;                 % 2-second listening window
+signal_ret_clean = zeros(size(t_ret));
 
-noise_amp = 1.5;
-noise = noise_amp * randn(size(t));
-return_signal = signal_1 + noise;
+delay_time = 0.8;               % Pulse arrival at 0.8 seconds
+delay_idx = round(delay_time * fs) + 1;
 
-h = fliplr(return_signal);
-output = conv(signal_2, h, 'same');
+% Insert reference signal at the delay point
+signal_ret_clean(delay_idx : delay_idx + length(signal_ref) - 1) = signal_ref;
 
-figure('Position', [100, 100, 800, 600]);
-subplot(3,1,1);
-plot(t, return_signal, 'b', 'LineWidth', 2);
-title('Return Signal s[n]');
-xlabel('Time (s)'); grid on;
+% 3. Add Noise
+% Method A: Using awgn from Signal Processing Toolbox (specify SNR in dB)
+snr_db = -5;                    % Signal buried in noise
+signal_ret_noisy = awgn(signal_ret_clean, snr_db, 'measured');
 
-subplot(3,1,2);
-plot(t, signal_2, 'r', 'LineWidth', 2);
-title('Signal 2 s[n]');
-xlabel('Time (s)'); grid on;
+% (Alternative without toolbox using randn):
+% noise_power = 0.5;
+% signal_ret_noisy = signal_ret_clean + noise_power * randn(size(signal_ret_clean));
 
-subplot(3,1,3);
-plot(t, output, 'g', 'LineWidth', 2);  % Use t_out here
-title('Output y[n]');
-xlabel('Time (s)'); grid on;
+% 4. Matched Filter
+h = fliplr(signal_ref);
+y = conv(signal_ret_noisy, h, 'same');
+output = abs(y);
+
+%% Visualization
+figure('Position', [100, 100, 800, 700]);
+
+% Reference Signal
+subplot(3, 1, 1);
+plot(t_ref, signal_ref, 'r', 'LineWidth', 1.5);
+title('Reference Signal s_{ref}[n]');
+xlabel('Time (s)'); ylabel('Amplitude'); grid on;
+
+% Noisy Return Signal
+subplot(3, 1, 2);
+plot(t_ret, signal_ret_noisy, 'Color', [0.5 0.5 0.5]);
+hold on;
+plot(t_ret, signal_ret_clean, 'b--', 'LineWidth', 1.2);
+title(sprintf('Noisy Return Signal s_{ret}[n] (SNR = %d dB)', snr_db));
+xlabel('Time (s)'); ylabel('Amplitude');
+legend('Noisy Received', 'Clean Embedded Pulse', 'Location', 'northeast');
+grid on;
+
+% Filter Output
+subplot(3, 1, 3);
+plot(t_ret, output, 'g', 'LineWidth', 1.8);
+hold on;
+xline(delay_time + 0.25, 'r--', 'Expected Peak Center', 'LineWidth', 1.2);
+title('Matched Filter Output |y[n]|');
+xlabel('Time (s)'); ylabel('Magnitude'); grid on;

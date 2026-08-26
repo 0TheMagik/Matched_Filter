@@ -32,18 +32,23 @@ entity matchedfilter is
     port(
         clk             : in std_logic;
         rst             : in std_logic;
+        
         addr_signal_1   : out std_logic_vector(ADDR_SIZE-1 downto 0);
         in_signal_1     : in std_logic_vector(DATA_SIZE-1 downto 0);
         
         addr_signal_2   : out std_logic_vector(ADDR_SIZE-1 downto 0);
         in_signal_2     : in std_logic_vector(DATA_SIZE-1 downto 0);
+        
         out_signal      : out std_logic_vector(DATA_SIZE*2-1 downto 0)
     );
 end matchedfilter;
 
 architecture Behavioral of matchedfilter is
 
-    type mult_array is array (0 to SIGNAL_LENGTH-1) of signed(DATA_SIZE-1 downto 0);
+    type signal_array is array (0 to SIGNAL_LENGTH-1) of std_logic_vector(DATA_SIZE-1 downto 0);
+    
+    signal ref_signal_reg   : signal_array := (others => (others => '0'));
+    signal ret_signal_reg   : signal_array := (others => (others => '0'));
     
 --    signal mult_res     : mult_array := (others => (others => '0'));
     signal mult_res     : signed(DATA_SIZE*2-1 downto 0) := (others => '0');
@@ -55,7 +60,11 @@ begin
     
     addr_signal_1 <= std_logic_vector(to_unsigned(in_counter,ADDR_SIZE));
     addr_signal_2 <= std_logic_vector(to_unsigned(in_counter,ADDR_SIZE));
+    
+    process(clk)
+    begin
         
+    end process;
     process(clk)
         variable temp_sum   : signed(out_signal'range);
     begin
@@ -67,7 +76,7 @@ begin
                 -- Multiplication
                 mult_res <= (signed(in_signal_1)*signed(in_signal_2));
                 -- Accumulate
-                temp_res <= temp_res + resize(mult_res,temp_res'length);
+--                temp_res <= temp_res + resize(mult_res,temp_res'length);
             end if;
         end if;
     end process;

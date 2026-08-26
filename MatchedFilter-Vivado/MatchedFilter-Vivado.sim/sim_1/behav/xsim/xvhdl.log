@@ -1,4 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Documents/Vivado_Project/Matched_Filter/SRC/mem_interface.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'mem_interface'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/USER/Documents/Vivado_Project/Matched_Filter/SRC/matchedfilter.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'matchedfilter'

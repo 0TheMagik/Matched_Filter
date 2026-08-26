@@ -63,6 +63,11 @@ begin
     
     process(clk)
     begin
+        if rising_edge(clk) then
+        else
+            if rst = '1' then
+            end if;
+        end if;
         
     end process;
     process(clk)

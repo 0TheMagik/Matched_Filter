@@ -8,7 +8,16 @@ plot(t, signal_1, 'b', 'LineWidth', 2);
 title('Known Template Signal s[n]');
 xlabel('Time (s)'); grid on;
 
-BITS = 32;
+%y = conv(signal_1, signal_1, 'same');
+
+h = fliplr(signal_1);
+y = conv(signal_1, h, 'same');
+
+plot(t, y, 'b', 'LineWidth', 2);
+title('Output s[n]');
+xlabel('Time (s)'); grid on;
+
+BITS = 16;
 s_norm = signal_1 / max(signal_1);
 s_int = round(s_norm * (2^(BITS-1) - 1));
 
@@ -19,7 +28,7 @@ for i = 1:length(s_int)
     if val < 0
         val = val + 2^BITS;
     end
-    s_hex{i} = dec2hex(val, 8);
+    s_hex{i} = dec2hex(val, 4);
 end
 
 % --- Format A: Xilinx Vivado Block RAM (.coe) ---

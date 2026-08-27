@@ -21,9 +21,9 @@ vlog -work blk_mem_gen_v8_4_12  -incr -mfcu  "+incdir+C:/AMDDesignTools/2025.2/V
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef" \
 "../../../bd/design_2/ip/design_2_blk_mem_gen_0_0/sim/design_2_blk_mem_gen_0_0.v" \
 "../../../bd/design_2/ip/design_2_blk_mem_gen_1_0/sim/design_2_blk_mem_gen_1_0.v" \
-"../../../bd/design_2/ip/design_2_mult_unit_0_0/sim/design_2_mult_unit_0_0.v" \
-"../../../bd/design_2/ip/design_2_sum_unit_0_0/sim/design_2_sum_unit_0_0.v" \
-"../../../bd/design_2/ip/design_2_controller_0_0/sim/design_2_controller_0_0.v" \
+"../../../bd/design_2/ip/design_2_matchedfilter_0_0/sim/design_2_matchedfilter_0_0.v" \
+"../../../bd/design_2/ip/design_2_mem_interface_0_0/sim/design_2_mem_interface_0_0.v" \
+"../../../bd/design_2/ip/design_2_mem_interface_1_0/sim/design_2_mem_interface_1_0.v" \
 "../../../bd/design_2/sim/design_2.v" \
 
 vlog -work xil_defaultlib \

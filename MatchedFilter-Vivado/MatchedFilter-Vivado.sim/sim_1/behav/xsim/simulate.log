@@ -5,3 +5,4 @@ Block Memory Generator module design_2_wrapper.design_2_i.blk_mem_gen_0.inst.nat
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
 Block Memory Generator module design_2_wrapper.design_2_i.blk_mem_gen_1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: xsimkernel Simulation Memory Usage: 15040 KB (Peak: 15040 KB), Simulation CPU Usage: 19374 ms

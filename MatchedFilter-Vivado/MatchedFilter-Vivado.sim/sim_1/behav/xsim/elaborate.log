@@ -22,12 +22,11 @@ Compiling module xil_defaultlib.design_2_blk_mem_gen_0_0
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
 Compiling module xil_defaultlib.design_2_blk_mem_gen_1_0
-Compiling architecture behavioral of entity xil_defaultlib.controller [controller_default]
-Compiling module xil_defaultlib.design_2_controller_0_0
-Compiling architecture behavioral of entity xil_defaultlib.mult_unit [mult_unit_default]
-Compiling module xil_defaultlib.design_2_mult_unit_0_0
-Compiling architecture behavioral of entity xil_defaultlib.sum_unit [sum_unit_default]
-Compiling module xil_defaultlib.design_2_sum_unit_0_0
+Compiling architecture behavioral of entity xil_defaultlib.matchedfilter [\matchedfilter(data_size=16)\]
+Compiling module xil_defaultlib.design_2_matchedfilter_0_0
+Compiling architecture behavioral of entity xil_defaultlib.mem_interface [mem_interface_default]
+Compiling module xil_defaultlib.design_2_mem_interface_0_0
+Compiling module xil_defaultlib.design_2_mem_interface_1_0
 Compiling module xil_defaultlib.design_2
 Compiling module xil_defaultlib.design_2_wrapper
 Compiling module xil_defaultlib.glbl

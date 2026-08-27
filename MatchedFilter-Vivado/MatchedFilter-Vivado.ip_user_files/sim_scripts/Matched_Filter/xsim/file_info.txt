@@ -1,0 +1,7 @@
+Matched_Filter_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../../../Design/Matched_Filter/ip/Matched_Filter_blk_mem_gen_0_0/sim/Matched_Filter_blk_mem_gen_0_0.v,incdir="C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef"
+Matched_Filter_blk_mem_gen_1_0.v,verilog,xil_defaultlib,../../../../../Design/Matched_Filter/ip/Matched_Filter_blk_mem_gen_1_0/sim/Matched_Filter_blk_mem_gen_1_0.v,incdir="C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef"
+Matched_Filter_mem_interface_0_0.v,verilog,xil_defaultlib,../../../../../Design/Matched_Filter/ip/Matched_Filter_mem_interface_0_0/sim/Matched_Filter_mem_interface_0_0.v,incdir="C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef"
+Matched_Filter_mem_interface_1_0.v,verilog,xil_defaultlib,../../../../../Design/Matched_Filter/ip/Matched_Filter_mem_interface_1_0/sim/Matched_Filter_mem_interface_1_0.v,incdir="C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef"
+Matched_Filter_matchedfilter_0_0.v,verilog,xil_defaultlib,../../../../../Design/Matched_Filter/ip/Matched_Filter_matchedfilter_0_0/sim/Matched_Filter_matchedfilter_0_0.v,incdir="C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef"
+Matched_Filter.v,verilog,xil_defaultlib,../../../../../Design/Matched_Filter/sim/Matched_Filter.v,incdir="C:/AMDDesignTools/2025.2/Vivado/data/rsb/busdef"
+glbl.v,Verilog,xil_defaultlib,glbl.v

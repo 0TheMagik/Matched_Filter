@@ -1,7 +1,7 @@
 Vivado Simulator v2025.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot design_2_wrapper_behav xil_defaultlib.design_2_wrapper xil_defaultlib.glbl -log elaborate.log 
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Matched_Filter_wrapper_behav xil_defaultlib.Matched_Filter_wrapper xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -18,17 +18,16 @@ Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
-Compiling module xil_defaultlib.design_2_blk_mem_gen_0_0
+Compiling module xil_defaultlib.Matched_Filter_blk_mem_gen_0_0
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
 Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
-Compiling module xil_defaultlib.design_2_blk_mem_gen_1_0
-Compiling architecture behavioral of entity xil_defaultlib.controller [controller_default]
-Compiling module xil_defaultlib.design_2_controller_0_0
-Compiling architecture behavioral of entity xil_defaultlib.mult_unit [mult_unit_default]
-Compiling module xil_defaultlib.design_2_mult_unit_0_0
-Compiling architecture behavioral of entity xil_defaultlib.sum_unit [sum_unit_default]
-Compiling module xil_defaultlib.design_2_sum_unit_0_0
-Compiling module xil_defaultlib.design_2
-Compiling module xil_defaultlib.design_2_wrapper
+Compiling module xil_defaultlib.Matched_Filter_blk_mem_gen_1_0
+Compiling architecture behavioral of entity xil_defaultlib.matchedfilter [\matchedfilter(data_size=16)\]
+Compiling module xil_defaultlib.Matched_Filter_matchedfilter_0_0
+Compiling architecture behavioral of entity xil_defaultlib.mem_interface [mem_interface_default]
+Compiling module xil_defaultlib.Matched_Filter_mem_interface_0_0
+Compiling module xil_defaultlib.Matched_Filter_mem_interface_1_0
+Compiling module xil_defaultlib.Matched_Filter
+Compiling module xil_defaultlib.Matched_Filter_wrapper
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot design_2_wrapper_behav
+Built simulation snapshot Matched_Filter_wrapper_behav

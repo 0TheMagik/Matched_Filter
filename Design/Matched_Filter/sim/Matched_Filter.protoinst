@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"Matched_Filter": {
+			"proto_instances": {
+			}
+		}
+	}
+}

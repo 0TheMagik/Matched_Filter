@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Thu Aug 27 11:45:42 2026
+//Date        : Tue Aug 25 00:11:34 2026
 //Host        : OCPCBench running 64-bit major release  (build 9200)
 //Command     : generate_target design_2.bd
 //Design      : design_2
@@ -19,36 +19,47 @@ module design_2
   output [63:0]matched_out;
   input rst;
 
-  wire [15:0]blk_mem_gen_0_douta;
-  wire [15:0]blk_mem_gen_1_douta;
+  wire [31:0]blk_mem_gen_0_douta;
+  wire [31:0]blk_mem_gen_1_douta;
   wire clk_100MHz;
+  wire [10:0]controller_0_addr_signal_1;
+  wire [10:0]controller_0_addr_signal_2;
+  wire controller_0_start;
   wire [63:0]matched_out;
-  wire [10:0]mem_interface_0_addr;
-  wire [10:0]mem_interface_1_addr;
+  wire mult_unit_0_out_done;
+  wire [63:0]mult_unit_0_out_res;
   wire rst;
 
   design_2_blk_mem_gen_0_0 blk_mem_gen_0
-       (.addra(mem_interface_1_addr),
+       (.addra(controller_0_addr_signal_2),
         .clka(clk_100MHz),
-        .dina({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
+        .dina({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
         .douta(blk_mem_gen_0_douta),
         .wea(1'b0));
   design_2_blk_mem_gen_1_0 blk_mem_gen_1
-       (.addra(mem_interface_0_addr),
+       (.addra(controller_0_addr_signal_1),
         .clka(clk_100MHz),
-        .dina({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
+        .dina({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
         .douta(blk_mem_gen_1_douta),
         .wea(1'b0));
-  design_2_matchedfilter_0_0 matchedfilter_0
+  design_2_controller_0_0 controller_0
+       (.addr_signal_1(controller_0_addr_signal_1),
+        .addr_signal_2(controller_0_addr_signal_2),
+        .clk(clk_100MHz),
+        .rst(rst),
+        .start(controller_0_start));
+  design_2_mult_unit_0_0 mult_unit_0
        (.clk(clk_100MHz),
-        .in_signal_1(blk_mem_gen_1_douta),
-        .in_signal_2(blk_mem_gen_0_douta),
-        .out_signal(matched_out),
-        .rst(rst));
-  design_2_mem_interface_0_0 mem_interface_0
-       (.addr(mem_interface_0_addr),
-        .clk(clk_100MHz));
-  design_2_mem_interface_1_0 mem_interface_1
-       (.addr(mem_interface_1_addr),
-        .clk(clk_100MHz));
+        .in_1(blk_mem_gen_1_douta),
+        .in_2(blk_mem_gen_0_douta),
+        .out_done(mult_unit_0_out_done),
+        .out_res(mult_unit_0_out_res),
+        .rst(rst),
+        .start(controller_0_start));
+  design_2_sum_unit_0_0 sum_unit_0
+       (.clk(clk_100MHz),
+        .in_data(mult_unit_0_out_res),
+        .out_res(matched_out),
+        .rst(rst),
+        .start(mult_unit_0_out_done));
 endmodule

@@ -1,7 +1,8 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
-"../../../../../SRC/matchedfilter.vhd" \
-"../../../../../SRC/mem_interface.vhd" \
+"../../../../../SRC/mult_unit.vhd" \
+"../../../../../SRC/sum_unit.vhd" \
+"../../../../../SRC/controller.vhd" \
 
 # Do not sort compile order
 nosort

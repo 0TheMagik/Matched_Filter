@@ -12,9 +12,9 @@
     "design_tree": {
       "blk_mem_gen_0": "",
       "blk_mem_gen_1": "",
-      "matchedfilter_0": "",
-      "mem_interface_0": "",
-      "mem_interface_1": ""
+      "mult_unit_0": "",
+      "sum_unit_0": "",
+      "controller_0": ""
     },
     "ports": {
       "clk_100MHz": {
@@ -49,7 +49,19 @@
       "matched_out": {
         "direction": "O",
         "left": "63",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": [
+              "xilinx.com:interface:datatypes:1.0 {",
+              "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum",
+              "{} maximum {}} value 64} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format",
+              "bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 64",
+              "}"
+            ],
+            "value_src": "ip_prop"
+          }
+        }
       },
       "rst": {
         "direction": "I"
@@ -77,7 +89,7 @@
             "value": "true"
           },
           "Read_Width_A": {
-            "value": "16"
+            "value": "32"
           },
           "Use_RSTA_Pin": {
             "value": "false"
@@ -86,7 +98,7 @@
             "value": "2048"
           },
           "Write_Width_A": {
-            "value": "16"
+            "value": "32"
           },
           "use_bram_block": {
             "value": "Stand_Alone"
@@ -114,7 +126,7 @@
             "value": "true"
           },
           "Read_Width_A": {
-            "value": "16"
+            "value": "32"
           },
           "Use_RSTA_Pin": {
             "value": "false"
@@ -123,28 +135,23 @@
             "value": "2048"
           },
           "Write_Width_A": {
-            "value": "16"
+            "value": "32"
           },
           "use_bram_block": {
             "value": "Stand_Alone"
           }
         }
       },
-      "matchedfilter_0": {
-        "vlnv": "xilinx.com:module_ref:matchedfilter:1.0",
+      "mult_unit_0": {
+        "vlnv": "xilinx.com:module_ref:mult_unit:1.0",
         "ip_revision": "1",
-        "xci_name": "design_2_matchedfilter_0_0",
-        "xci_path": "ip\\design_2_matchedfilter_0_0\\design_2_matchedfilter_0_0.xci",
-        "inst_hier_path": "matchedfilter_0",
+        "xci_name": "design_2_mult_unit_0_0",
+        "xci_path": "ip\\design_2_mult_unit_0_0\\design_2_mult_unit_0_0.xci",
+        "inst_hier_path": "mult_unit_0",
         "has_run_ip_tcl": "true",
-        "parameters": {
-          "DATA_SIZE": {
-            "value": "16"
-          }
-        },
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "matchedfilter",
+          "ref_name": "mult_unit",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -170,33 +177,39 @@
             "type": "rst",
             "direction": "I"
           },
-          "in_signal_1": {
+          "start": {
+            "direction": "I"
+          },
+          "in_1": {
             "direction": "I",
-            "left": "15",
+            "left": "31",
             "right": "0"
           },
-          "in_signal_2": {
+          "in_2": {
             "direction": "I",
-            "left": "15",
+            "left": "31",
             "right": "0"
           },
-          "out_signal": {
+          "out_done": {
+            "direction": "O"
+          },
+          "out_res": {
             "direction": "O",
             "left": "63",
             "right": "0"
           }
         }
       },
-      "mem_interface_0": {
-        "vlnv": "xilinx.com:module_ref:mem_interface:1.0",
+      "sum_unit_0": {
+        "vlnv": "xilinx.com:module_ref:sum_unit:1.0",
         "ip_revision": "1",
-        "xci_name": "design_2_mem_interface_0_0",
-        "xci_path": "ip\\design_2_mem_interface_0_0\\design_2_mem_interface_0_0.xci",
-        "inst_hier_path": "mem_interface_0",
+        "xci_name": "design_2_sum_unit_0_0",
+        "xci_path": "ip\\design_2_sum_unit_0_0\\design_2_sum_unit_0_0.xci",
+        "inst_hier_path": "sum_unit_0",
         "has_run_ip_tcl": "true",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "mem_interface",
+          "ref_name": "sum_unit",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -204,6 +217,10 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
               "FREQ_HZ": {
                 "value": "100000000",
                 "value_src": "user_prop"
@@ -214,23 +231,47 @@
               }
             }
           },
-          "addr": {
-            "direction": "O",
-            "left": "10",
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "start": {
+            "direction": "I"
+          },
+          "in_data": {
+            "direction": "I",
+            "left": "63",
             "right": "0"
+          },
+          "out_res": {
+            "direction": "O",
+            "left": "63",
+            "right": "0",
+            "parameters": {
+              "LAYERED_METADATA": {
+                "value": [
+                  "xilinx.com:interface:datatypes:1.0 {",
+                  "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum",
+                  "{} maximum {}} value 64} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format",
+                  "bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 64",
+                  "}"
+                ],
+                "value_src": "ip_prop"
+              }
+            }
           }
         }
       },
-      "mem_interface_1": {
-        "vlnv": "xilinx.com:module_ref:mem_interface:1.0",
+      "controller_0": {
+        "vlnv": "xilinx.com:module_ref:controller:1.0",
         "ip_revision": "1",
-        "xci_name": "design_2_mem_interface_1_0",
-        "xci_path": "ip\\design_2_mem_interface_1_0\\design_2_mem_interface_1_0.xci",
-        "inst_hier_path": "mem_interface_1",
+        "xci_name": "design_2_controller_0_0",
+        "xci_path": "ip\\design_2_controller_0_0\\design_2_controller_0_0.xci",
+        "inst_hier_path": "controller_0",
         "has_run_ip_tcl": "true",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "mem_interface",
+          "ref_name": "controller",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -238,6 +279,10 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
               "FREQ_HZ": {
                 "value": "100000000",
                 "value_src": "user_prop"
@@ -248,7 +293,19 @@
               }
             }
           },
-          "addr": {
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "start": {
+            "direction": "O"
+          },
+          "addr_signal_1": {
+            "direction": "O",
+            "left": "10",
+            "right": "0"
+          },
+          "addr_signal_2": {
             "direction": "O",
             "left": "10",
             "right": "0"
@@ -262,45 +319,65 @@
           "clk_100MHz",
           "blk_mem_gen_1/clka",
           "blk_mem_gen_0/clka",
-          "mem_interface_1/clk",
-          "mem_interface_0/clk",
-          "matchedfilter_0/clk"
+          "mult_unit_0/clk",
+          "sum_unit_0/clk",
+          "controller_0/clk"
         ]
       },
       "blk_mem_gen_0_douta": {
         "ports": [
           "blk_mem_gen_0/douta",
-          "matchedfilter_0/in_signal_2"
+          "mult_unit_0/in_2"
         ]
       },
       "blk_mem_gen_1_douta": {
         "ports": [
           "blk_mem_gen_1/douta",
-          "matchedfilter_0/in_signal_1"
+          "mult_unit_0/in_1"
         ]
       },
-      "matchedfilter_0_out_signal": {
+      "controller_0_addr_signal_1": {
         "ports": [
-          "matchedfilter_0/out_signal",
-          "matched_out"
-        ]
-      },
-      "mem_interface_0_addr": {
-        "ports": [
-          "mem_interface_0/addr",
+          "controller_0/addr_signal_1",
           "blk_mem_gen_1/addra"
         ]
       },
-      "mem_interface_1_addr": {
+      "controller_0_addr_signal_2": {
         "ports": [
-          "mem_interface_1/addr",
+          "controller_0/addr_signal_2",
           "blk_mem_gen_0/addra"
+        ]
+      },
+      "controller_0_start": {
+        "ports": [
+          "controller_0/start",
+          "mult_unit_0/start"
+        ]
+      },
+      "mult_unit_0_out_done": {
+        "ports": [
+          "mult_unit_0/out_done",
+          "sum_unit_0/start"
+        ]
+      },
+      "mult_unit_0_out_res": {
+        "ports": [
+          "mult_unit_0/out_res",
+          "sum_unit_0/in_data"
         ]
       },
       "rst_1": {
         "ports": [
           "rst",
-          "matchedfilter_0/rst"
+          "mult_unit_0/rst",
+          "sum_unit_0/rst",
+          "controller_0/rst"
+        ]
+      },
+      "sum_unit_0_out_res": {
+        "ports": [
+          "sum_unit_0/out_res",
+          "matched_out"
         ]
       }
     }

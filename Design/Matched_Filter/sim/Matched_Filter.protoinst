@@ -1,7 +1,7 @@
 {
 	"version": "1.0",
 	"modules": {
-		"design_2": {
+		"Matched_Filter": {
 			"proto_instances": {
 			}
 		}

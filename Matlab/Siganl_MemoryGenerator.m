@@ -100,3 +100,21 @@ fprintf(fid2, '%s;\n', s2_hex{end});
 fclose(fid2);
 
 disp('Export complete: Signal_ref.coe and Signal_ret_noisy.coe saved to /Signal folder.');
+
+
+%% Export to Plain .hex Files (One 16-bit word per line)
+% 1. Reference Signal (.hex)
+fid_hex1 = fopen(fullfile('Signal', 'Signal_ref.hex'), 'w');
+for i = 1:length(s1_hex)
+    fprintf(fid_hex1, '%s\n', s1_hex{i});
+end
+fclose(fid_hex1);
+
+% 2. Noisy Return Signal (.hex)
+fid_hex2 = fopen(fullfile('Signal', 'Signal_ret_noisy.hex'), 'w');
+for i = 1:length(s2_hex)
+    fprintf(fid_hex2, '%s\n', s2_hex{i});
+end
+fclose(fid_hex2);
+
+disp('Export complete: Signal_ref.hex and Signal_ret_noisy.hex saved to /Signal folder.');

@@ -73,7 +73,8 @@ module matchedfilter_verilog #(
                     ref_loaded <= 1'b1; // Reference is now fully stored and locked
                 end
             end
-                
+            
+            // Return signal shift
             ret_signal_reg[0] <= ret_signal;
             for(j = 1; j < RET_LENGTH-1; j = j+1) begin
                 ret_signal_reg[j] <= ret_signal_reg[j-1];

@@ -13,8 +13,8 @@ Download  board file [Here](https://github.com/leecurrent04/MicroPhase-Z7-Lite-B
 
 ## File Component
 There are 2 version of the implementation:
-- VHDL : [matchedfilter.vhd](SRC/matchedfilter.vhd)
-- Verilog : [matchedfilter_verilog.v](SRC/matchedfilter_verilog.v)
+- VHDL : [matchedfilter.vhd](SRC/VHDL/matchedfilter.vhd)
+- Verilog : [matchedfilter_verilog.v](SRC/Verilog/matchedfilter_verilog.v)
 
 both are the same algorithm with 3 customizeable parameter. Costumizeable parameter:
 - DATA_SIZE  

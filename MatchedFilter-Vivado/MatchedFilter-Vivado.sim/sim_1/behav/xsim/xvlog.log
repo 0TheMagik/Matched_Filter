@@ -1,4 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado_Projects/Matched_Filter/SRC/matchedfilter_verilog.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module matchedfilter_verilog
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Vivado_Projects/Matched_Filter/SRC/matched_filter_verilog_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module matched_filter_verilog_tb

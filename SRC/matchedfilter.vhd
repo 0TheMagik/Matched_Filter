@@ -25,7 +25,6 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity matchedfilter is
     generic(
-        ADDR_SIZE       : integer := 11;
         DATA_SIZE       : integer := 32;
         REF_LENGTH      : integer := 501;
         RET_LENGTH      : integer := 2001
@@ -34,8 +33,8 @@ entity matchedfilter is
         clk           : in std_logic;
         rst           : in std_logic;
         
-        in_signal_1   : in std_logic_vector(DATA_SIZE-1 downto 0); -- Reference template signal (loaded once)
-        in_signal_2   : in std_logic_vector(DATA_SIZE-1 downto 0); -- Incoming real-time signal stream
+        ref_signal    : in std_logic_vector(DATA_SIZE-1 downto 0); -- Reference template signal (loaded once)
+        ret_signal    : in std_logic_vector(DATA_SIZE-1 downto 0); -- Incoming real-time signal stream
         
         out_signal    : out std_logic_vector(63 downto 0)
     );
@@ -71,7 +70,7 @@ begin
             else
                 -- 1. Pre-load the reference template into stationary registers
                 if ref_loaded = '0' then
-                    ref_signal_reg(in_counter) <= in_signal_1;
+                    ref_signal_reg(in_counter) <= ref_signal;
                     if in_counter < REF_LENGTH-1 then
                         in_counter <= in_counter + 1;
                     else
@@ -81,7 +80,7 @@ begin
                 end if;
 
                 -- 2. Shift ONLY the incoming received signal down the delay line
-                ret_signal_reg(0) <= in_signal_2;
+                ret_signal_reg(0) <= ret_signal;
                 for i in 1 to RET_LENGTH-1 loop
                     ret_signal_reg(i) <= ret_signal_reg(i-1);
                 end loop;

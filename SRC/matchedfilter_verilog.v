@@ -21,7 +21,6 @@
 
 
 module matchedfilter_verilog #(
-    parameter ADDR_SIZE     = 11,
     parameter DATA_SIZE     = 32,
     parameter REF_LENGTH    = 501,
     parameter RET_LENGTH    = 2001

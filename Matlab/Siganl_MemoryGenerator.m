@@ -23,7 +23,7 @@ signal_ret_noisy = awgn(signal_ret_clean, snr_db, 'measured');
 % 4. Matched Filter
 h = fliplr(signal_ref);
 y = conv(signal_ret_noisy, h, 'same');
-output = abs(y);
+output = (y);
 
 %% Visualization
 figure('Position', [100, 100, 800, 700]);

@@ -22,7 +22,6 @@
 
 module matched_filter_verilog_tb;
     // DUT Parameter
-    localparam ADDR_SIZE    = 11;
     localparam DATA_SIZE    = 16;
     localparam REF_LENGTH   = 501;
     localparam RET_LENGTH   = 501;
@@ -47,7 +46,6 @@ module matched_filter_verilog_tb;
 //    integer i, j = 0;
 
     matchedfilter_verilog#(
-        .ADDR_SIZE(ADDR_SIZE),
         .DATA_SIZE(DATA_SIZE),
         .REF_LENGTH(REF_LENGTH),
         .RET_LENGTH(RET_LENGTH)    

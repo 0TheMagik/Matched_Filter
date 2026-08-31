@@ -8,14 +8,12 @@
     "gen_directory": ".",
     "parameters": {
       "component_parameters": {
-        "ADDR_SIZE": [ { "value": "11", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "DATA_SIZE": [ { "value": "16", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "REF_LENGTH": [ { "value": "501", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "RET_LENGTH": [ { "value": "2001", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "Matched_Filter_matchedfilter_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
-        "ADDR_SIZE": [ { "value": "11", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "DATA_SIZE": [ { "value": "16", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "REF_LENGTH": [ { "value": "501", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "RET_LENGTH": [ { "value": "2001", "resolve_type": "generated", "format": "long", "usage": "all" } ]
@@ -48,8 +46,8 @@
       "ports": {
         "clk": [ { "direction": "in" } ],
         "rst": [ { "direction": "in" } ],
-        "in_signal_1": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
-        "in_signal_2": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "ref_signal": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
+        "ret_signal": [ { "direction": "in", "size_left": "15", "size_right": "0" } ],
         "out_signal": [ { "direction": "out", "size_left": "63", "size_right": "0" } ]
       },
       "interfaces": {
@@ -71,10 +69,10 @@
           "mode": "slave",
           "parameters": {
             "ASSOCIATED_RESET": [ { "value": "rst", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
-            "FREQ_HZ": [ { "value": "100000000", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_HZ": [ { "value": "100000000", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "Matched_Filter_clk_100MHz", "value_src": "default_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
@@ -86,5 +84,5 @@
       }
     }
   },
-  "checksum": "b189cf82"
+  "checksum": "33b1fc2b"
 }

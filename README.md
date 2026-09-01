@@ -11,6 +11,8 @@ $$
 - Microphase Z7Lite (Xilinx Zynq-7010) board files for hardware target.  
 Download  board file [Here](https://github.com/leecurrent04/MicroPhase-Z7-Lite-Board)
 
+***Dependency is only used to open the project files directly, else just copy the code to another project.**
+
 ## File Component
 There are 2 version of the implementation:
 - VHDL : [matchedfilter.vhd](SRC/VHDL/matchedfilter.vhd)
@@ -31,4 +33,5 @@ The implementation used a shift register to do calculation. every received signa
 Testing done using a matlab generated signal. Matlab signal is then exported to `.coe` and `.hex` files. `.coe` files is used for BRAM initialization. `.hex` is used in the test bench by feeding it to the input of the matched filter.
 
 
-***Test bench is only available in the verilog version.**
+***Test bench is available on VHDL and Verilog version.**  
+***Code is not optimized for FPGA usage, only for simulation.**

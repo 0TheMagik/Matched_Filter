@@ -35,7 +35,7 @@ module matchedfilter_verilog #(
     reg signed [DATA_SIZE-1:0] ref_signal_reg [0:REF_LENGTH-1];
     reg signed [DATA_SIZE-1:0] ret_signal_reg [0:RET_LENGTH-1];
     
-    reg signed [DATA_SIZE*2-1:0] mult_res;
+//    reg signed [DATA_SIZE*2-1:0] mult_res;
     reg signed [63:0] temp_res;
     
     integer in_counter;
@@ -49,7 +49,7 @@ module matchedfilter_verilog #(
     always@(posedge clk)
     begin
         if(rst) begin
-            mult_res <= {DATA_SIZE*2-1{1'b0}};
+//            mult_res <= {DATA_SIZE*2-1{1'b0}};
             temp_res <= 64'sd0;
             in_counter <= 0;
             ref_loaded <= 1'b0;
@@ -85,7 +85,7 @@ module matchedfilter_verilog #(
                 v_temp_res = v_temp_res + v_mult_res;
             end    
             
-            mult_res <= v_mult_res;
+//            mult_res <= v_mult_res;
             temp_res <= v_temp_res;       
         end
     end

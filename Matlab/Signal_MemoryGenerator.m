@@ -99,8 +99,28 @@ end
 fprintf(fid2, '%s;\n', s2_hex{end});
 fclose(fid2);
 
-disp('Export complete: Signal_ref.coe and Signal_ret_noisy.coe saved to /Signal folder.');
+%% Export Signal 3: Matched Filter Output (.coe)
+BITS_OUT = 64;
 
+s3_norm = output / max(abs(output));
+s3_int = int64(round(s3_norm * double(intmax('int64'))));
+s3_hex = cell(length(s3_int), 1);
+
+for i = 1:length(s3_int)
+    val_u64 = typecast(s3_int(i), 'uint64');
+    s3_hex{i} = dec2hex(val_u64, 16);
+end
+
+fid3 = fopen(fullfile('Signal', 'Signal_output.coe'), 'w');
+fprintf(fid3, 'memory_initialization_radix=16;\n');
+fprintf(fid3, 'memory_initialization_vector=\n');
+for i = 1:length(s3_hex)-1
+    fprintf(fid3, '%s,\n', s3_hex{i});
+end
+fprintf(fid3, '%s;\n', s3_hex{end});
+fclose(fid3);
+
+disp('Export complete: Signal_ref.coe, Signal_ret_noisy.coe, and Signal_output.coe saved to /Signal folder.');
 
 %% Export to Plain .hex Files (One 16-bit word per line)
 % 1. Reference Signal (.hex)
@@ -117,4 +137,11 @@ for i = 1:length(s2_hex)
 end
 fclose(fid_hex2);
 
-disp('Export complete: Signal_ref.hex and Signal_ret_noisy.hex saved to /Signal folder.');
+% 3. Matched Filter Output (.hex) 
+fid_hex3 = fopen(fullfile('Signal', 'Signal_output.hex'), 'w');
+for i = 1:length(s3_hex)
+    fprintf(fid_hex3, '%s\n', s3_hex{i});
+end
+fclose(fid_hex3);
+
+disp('Export complete: Signal_ref.hex, Signal_ret_noisy.hex, and Signal_output.hex saved to /Signal folder.');

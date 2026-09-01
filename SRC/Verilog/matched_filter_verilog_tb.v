@@ -26,6 +26,7 @@ module matched_filter_verilog_tb;
     localparam REF_LENGTH   = 501;
     localparam RET_LENGTH   = 501;
     
+//    localparam FILTER_LATENCY = 5;
     // Test Bench Parameters
     localparam CLK_PERIOD       = 10;       //100 Mhz
     localparam TB_RUNTIME       = 100_000;  //100 us 
@@ -38,11 +39,14 @@ module matched_filter_verilog_tb;
     
 //    reg signed [DATA_SIZE-1:0] ref_rom [0:REF_LENGTH-1];
 //    reg signed [DATA_SIZE-1:0] ret_rom [0:RET_LENGTH-1];
-    
-    integer file_ref, file_ret;
-    integer status_ref, status_ret;
+        
+    integer file_ref, file_ret, file_output;
+    integer status_ref, status_ret, status_golden;
     reg signed [DATA_SIZE-1:0] temp_ref, temp_ret;
+    reg signed [63:0] exp_out;
 
+    integer match_count = 0;
+    integer error_count = 0;
 //    integer i, j = 0;
 
     matchedfilter_verilog#(
@@ -96,6 +100,52 @@ module matched_filter_verilog_tb;
             end
         end
     end
+    
+//    initial begin
+//        file_output = $fopen("Signal_output.hex", "r");
+//        if (file_output == 0) begin
+//            $display("[ERROR] Could not open Signal_output.hex.");
+//            $finish;
+//        end
+        
+//        // Wait until reset is deasserted
+//        @(negedge rst);
+        
+//        // Wait for DUT processing/pipeline delay
+//        repeat (FILTER_LATENCY) @(posedge clk);
+        
+//        // Check cycle-by-cycle
+//        while (!$feof(file_output)) begin
+//            @(posedge clk);
+            
+//            status_golden = $fscanf(file_output, "%h\n", exp_out);
+            
+//            if (status_golden == 1) begin
+//                if (out_signal !== exp_out) begin
+//                    $display("[FAIL] Time: %0t | Expected: 0x%016h (%0d) | Got: 0x%016h (%0d)",
+//                        $time, exp_out, exp_out, out_signal, out_signal);
+//                    error_count = error_count + 1;
+//                end 
+//                else begin
+//                    match_count = match_count + 1;
+//                end
+//            end
+//        end
+//        // Summary report
+//        $display("\n================ Verification Summary ================");
+//        $display("Matches: %0d", match_count);
+//        $display("Errors:  %0d", error_count);
+//        if (error_count == 0 && match_count > 0)
+//            $display("TEST PASSED successfully!");
+//        else
+//            $display("TEST FAILED with %0d mismatches.", error_count);
+//        $display("=====================================================\n");
+        
+//        $fclose(file_ref);
+//        $fclose(file_ret);
+//        $fclose(file_output);
+//        $finish;
+//    end
     
     initial begin
         #TB_RUNTIME;

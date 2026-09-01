@@ -55,7 +55,7 @@ architecture Behavioral of matchedfilter is
 begin
     
     process(clk)
-        -- Full 75-bit accumulator to prevent overflow during 2001-point accumulation
+
         variable v_mult_res : signed(DATA_SIZE*2-1 downto 0);
         variable v_temp_res : signed(63 downto 0); 
     begin
